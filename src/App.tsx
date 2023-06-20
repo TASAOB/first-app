@@ -1,6 +1,9 @@
+import { useState } from "react";
 import Alert from "./components/Alert";
+import Button from "./components/Button";
 
 function App() {
+  const [alertVisibility, setAlertVisibility] = useState(false);
   // let items = ["A", "B", "C", "D", "E"];
 
   // const handleSelectItem = (item: string) => {
@@ -14,7 +17,12 @@ function App() {
         heading={"Letters"}
         onSelectItem={handleSelectItem}
       /> */}
-      <Alert />
+      {alertVisibility && (
+        <Alert onClose={() => setAlertVisibility(false)}>Hello World</Alert>
+      )}
+      <Button color="secondary" onCLick={() => setAlertVisibility(true)}>
+        Hello World
+      </Button>
     </div>
   );
 }
